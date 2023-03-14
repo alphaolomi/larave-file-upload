@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// home to import
+Route::redirect('/', '/import');
+
+
+// import property
+Route::get('/import', [App\Http\Controllers\PropertyController::class,'showImport'])->name('showImport');
+Route::post('/import', [App\Http\Controllers\PropertyController::class,'import'])->name('import');
